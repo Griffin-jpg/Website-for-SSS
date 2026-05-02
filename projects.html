@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects — SSS Solutions Services & Supplies</title>
+    <meta name="description" content="SSS project portfolio — Telecom, Civil Works, Solar, and Supply projects across Punjab, Pakistan.">
+    <link rel="icon" type="image/jpeg" href="assets/logo.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+    <style>
+        :root {
+            --blue-900:#0a1628; --blue-800:#0d2147; --blue-700:#1040a0;
+            --blue-600:#1565C0; --blue-500:#1976D2; --blue-400:#2196F3;
+            --blue-300:#64B5F6; --blue-100:#E3F2FD; --blue-50:#F0F7FF;
+            --white:#FFFFFF; --gray-100:#F5F7FA; --gray-200:#EAECF0;
+            --gray-400:#98A2B3; --gray-600:#475467; --gray-800:#1D2939;
+            --accent:#00C8FF;
+        }
+        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+        html{scroll-behavior:smooth;}
+        body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--gray-800);overflow-x:hidden;}
+        h1,h2,h3,h4{font-family:'Syne',sans-serif;}
+
+        /* NAV */
+        nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:70px;background:rgba(10,22,40,0.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.08);}
+        .nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
+        .nav-logo img{height:42px;width:42px;border-radius:50%;object-fit:cover;border:2px solid var(--blue-500);}
+        .nav-logo-text strong{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:700;color:var(--white);}
+        .nav-logo-text span{font-size:0.65rem;color:var(--blue-300);text-transform:uppercase;letter-spacing:0.08em;display:block;}
+        .nav-links{display:flex;gap:36px;list-style:none;}
+        .nav-links a{text-decoration:none;color:rgba(255,255,255,0.75);font-size:0.9rem;font-weight:500;transition:color 0.2s;position:relative;}
+        .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--blue-400);transition:width 0.3s;}
+        .nav-links a:hover,.nav-links a.active{color:var(--white);}
+        .nav-links a:hover::after,.nav-links a.active::after{width:100%;}
+        .nav-cta{background:var(--blue-600) !important;color:var(--white) !important;padding:8px 20px;border-radius:6px;font-weight:600 !important;}
+        .nav-cta::after{display:none !important;}
+        .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;}
+        .hamburger span{width:24px;height:2px;background:var(--white);border-radius:2px;}
+        @media(max-width:768px){.nav-links{display:none;}.hamburger{display:flex;}.nav-links.open{display:flex;flex-direction:column;position:absolute;top:70px;left:0;right:0;background:var(--blue-900);padding:20px 5%;border-bottom:1px solid rgba(255,255,255,0.08);gap:16px;}}
+
+        /* PAGE HEADER */
+        .page-header{background:linear-gradient(160deg,var(--blue-900),var(--blue-800));padding:140px 5% 80px;position:relative;overflow:hidden;}
+        .page-header::after{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);background-size:60px 60px;}
+        .page-header-inner{position:relative;z-index:1;}
+        .breadcrumb{font-size:0.8rem;color:var(--blue-300);margin-bottom:16px;}
+        .breadcrumb a{color:var(--blue-300);text-decoration:none;}
+        .page-header h1{font-size:clamp(2rem,4vw,3.2rem);font-weight:800;color:var(--white);line-height:1.1;margin-bottom:16px;}
+        .page-header p{color:rgba(255,255,255,0.65);font-size:1.05rem;line-height:1.7;max-width:560px;}
+
+        /* FILTER */
+        .filter-section{background:var(--gray-100);padding:24px 5%;border-bottom:1px solid var(--gray-200);position:sticky;top:70px;z-index:100;}
+        .filter-tabs{display:flex;gap:10px;overflow-x:auto;padding-bottom:2px;}
+        .filter-tab{flex-shrink:0;padding:9px 20px;border-radius:100px;border:2px solid var(--gray-200);background:var(--white);color:var(--gray-600);font-size:0.85rem;font-weight:600;cursor:pointer;transition:all 0.2s;font-family:'DM Sans',sans-serif;}
+        .filter-tab:hover{border-color:var(--blue-400);color:var(--blue-500);}
+        .filter-tab.active{background:var(--blue-600);border-color:var(--blue-600);color:var(--white);}
+
+        /* STATS BANNER */
+        .stats-banner{background:var(--blue-600);padding:48px 5%;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center;}
+        .stat-item{color:var(--white);}
+        .stat-number{font-family:'Syne',sans-serif;font-size:2.4rem;font-weight:800;line-height:1;}
+        .stat-label{font-size:0.78rem;text-transform:uppercase;letter-spacing:0.1em;opacity:0.8;margin-top:6px;}
+        @media(max-width:600px){.stats-banner{grid-template-columns:1fr 1fr;}}
+
+        /* TIMELINE */
+        .timeline-section{padding:90px 5%;background:var(--white);}
+        .section-label{display:inline-block;font-size:0.75rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--blue-600);background:var(--blue-100);padding:4px 14px;border-radius:100px;margin-bottom:14px;}
+        .section-title{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:800;color:var(--gray-800);line-height:1.15;letter-spacing:-0.02em;margin-bottom:12px;}
+        .section-subtitle{font-size:1.05rem;color:var(--gray-600);line-height:1.7;max-width:560px;margin-bottom:60px;}
+
+        .timeline{position:relative;padding-left:40px;}
+        .timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--blue-600),var(--blue-100));}
+        .timeline-item{position:relative;margin-bottom:48px;padding-left:32px;}
+        .timeline-dot{position:absolute;left:-47px;top:6px;width:16px;height:16px;border-radius:50%;background:var(--blue-600);border:3px solid var(--white);box-shadow:0 0 0 3px var(--blue-200);}
+        .timeline-year{font-family:'Syne',sans-serif;font-size:0.78rem;font-weight:700;color:var(--blue-600);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px;}
+        .timeline-card{background:var(--gray-100);border-radius:14px;padding:24px;border:1px solid var(--gray-200);transition:all 0.25s;}
+        .timeline-card:hover{border-color:var(--blue-300);box-shadow:0 8px 30px rgba(21,101,192,0.1);transform:translateX(4px);}
+        .timeline-card h3{font-size:1rem;font-weight:700;margin-bottom:6px;color:var(--gray-800);}
+        .timeline-card .client{font-size:0.82rem;color:var(--blue-600);font-weight:600;margin-bottom:10px;}
+        .timeline-card p{font-size:0.85rem;color:var(--gray-600);line-height:1.6;}
+        .timeline-tag{display:inline-block;background:var(--blue-100);color:var(--blue-700);font-size:0.72rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:3px 10px;border-radius:100px;margin-top:12px;}
+
+        /* PROJECTS GRID */
+        .projects-section{padding:90px 5%;background:var(--gray-100);}
+        .projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:24px;}
+        .project-card{background:var(--white);border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.06);transition:all 0.3s;}
+        .project-card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(21,101,192,0.15);}
+        .project-card-img{width:100%;height:200px;object-fit:cover;display:block;}
+        .project-card-body{padding:22px;}
+        .project-card-category{font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--blue-600);margin-bottom:8px;}
+        .project-card h3{font-size:1rem;font-weight:700;margin-bottom:6px;color:var(--gray-800);}
+        .project-card .location{font-size:0.82rem;color:var(--gray-400);display:flex;align-items:center;gap:4px;margin-bottom:10px;}
+        .project-card p{font-size:0.85rem;color:var(--gray-600);line-height:1.6;}
+        .project-badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;}
+        .badge{display:inline-block;background:var(--blue-50);color:var(--blue-700);font-size:0.72rem;font-weight:600;padding:3px 10px;border-radius:100px;border:1px solid var(--blue-100);}
+
+        /* CLIENTS */
+        .clients-section{padding:80px 5%;background:var(--white);}
+        .clients-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px;margin-top:48px;}
+        .client-card{background:var(--blue-50);border:1px solid var(--blue-100);border-radius:12px;padding:24px 20px;text-align:center;transition:all 0.25s;}
+        .client-card:hover{background:var(--blue-100);border-color:var(--blue-300);}
+        .client-abbr{font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:800;color:var(--blue-600);margin-bottom:8px;}
+        .client-name{font-size:0.82rem;color:var(--gray-600);font-weight:500;line-height:1.4;}
+
+        /* CTA */
+        .projects-cta{background:linear-gradient(135deg,var(--blue-900),var(--blue-800));padding:90px 5%;text-align:center;position:relative;overflow:hidden;}
+        .projects-cta::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 100% at 50% 50%,rgba(21,101,192,0.4),transparent);}
+        .projects-cta-inner{position:relative;z-index:1;max-width:620px;margin:0 auto;}
+        .projects-cta h2{color:var(--white);font-size:clamp(1.8rem,3vw,2.6rem);font-weight:800;margin-bottom:16px;}
+        .projects-cta p{color:rgba(255,255,255,0.7);font-size:1.05rem;line-height:1.7;margin-bottom:36px;}
+        .btn-primary{background:var(--blue-600);color:var(--white);padding:14px 30px;border-radius:8px;text-decoration:none;font-weight:600;font-size:0.95rem;transition:all 0.25s;border:2px solid var(--blue-600);display:inline-flex;align-items:center;gap:8px;}
+        .btn-primary:hover{background:var(--blue-500);transform:translateY(-2px);box-shadow:0 8px 30px rgba(21,101,192,0.4);}
+        .btn-outline{background:transparent;color:var(--white);padding:14px 30px;border-radius:8px;text-decoration:none;font-weight:600;font-size:0.95rem;transition:all 0.25s;border:2px solid rgba(255,255,255,0.3);}
+        .btn-outline:hover{background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.7);transform:translateY(-2px);}
+        .cta-buttons{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+
+        /* FOOTER */
+        footer{background:var(--blue-900);color:rgba(255,255,255,0.7);padding:60px 5% 32px;}
+        .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;gap:48px;margin-bottom:48px;}
+        .footer-brand img{height:48px;width:48px;border-radius:50%;border:2px solid var(--blue-600);margin-bottom:16px;}
+        .footer-brand strong{display:block;font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:700;color:var(--white);margin-bottom:8px;}
+        .footer-col h5{font-family:'Syne',sans-serif;font-size:0.85rem;font-weight:700;color:var(--white);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:18px;}
+        .footer-col ul{list-style:none;}
+        .footer-col ul li{margin-bottom:10px;}
+        .footer-col ul li a{text-decoration:none;color:rgba(255,255,255,0.6);font-size:0.88rem;transition:color 0.2s;}
+        .footer-col ul li a:hover{color:var(--blue-300);}
+        .footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:28px;display:flex;justify-content:space-between;font-size:0.8rem;color:rgba(255,255,255,0.4);flex-wrap:wrap;gap:8px;}
+        @media(max-width:768px){.stats-banner{grid-template-columns:1fr 1fr;}.footer-grid{grid-template-columns:1fr 1fr;}.footer-brand{grid-column:span 2;}}
+        @media(max-width:480px){.footer-grid{grid-template-columns:1fr;}.footer-brand{grid-column:span 1;}}
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html" class="nav-logo">
+        <img src="assets/logo.jpg" alt="SSS Logo">
+        <div class="nav-logo-text"><strong>SSS</strong><span>Solutions Services & Supplies</span></div>
+    </a>
+    <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="projects.html" class="active">Projects</a></li>
+        <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+    </ul>
+    <div class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')">
+        <span></span><span></span><span></span>
+    </div>
+</nav>
+
+<div class="page-header">
+    <div class="page-header-inner">
+        <div class="breadcrumb"><a href="index.html">Home</a> &nbsp;/&nbsp; Projects</div>
+        <h1>Our Project Portfolio</h1>
+        <p>A track record of successful deliveries across telecommunications, civil works, solar energy, and supply projects throughout Punjab, Pakistan.</p>
+    </div>
+</div>
+
+<div class="filter-section">
+    <div class="filter-tabs">
+        <button class="filter-tab active" onclick="filterProjects('all', this)">All Projects</button>
+        <button class="filter-tab" onclick="filterProjects('telecom', this)">📡 Telecom</button>
+        <button class="filter-tab" onclick="filterProjects('civil', this)">🏗️ Civil Works</button>
+        <button class="filter-tab" onclick="filterProjects('solar', this)">☀️ Solar</button>
+        <button class="filter-tab" onclick="filterProjects('supply', this)">📦 Supply</button>
+        <button class="filter-tab" onclick="filterProjects('events', this)">🎯 Events</button>
+    </div>
+</div>
+
+<!-- STATS -->
+<div class="stats-banner">
+    <div class="stat-item" data-aos="fade-up" data-aos-delay="0">
+        <div class="stat-number">36</div>
+        <div class="stat-label">Districts Active</div>
+    </div>
+    <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
+        <div class="stat-number">150+</div>
+        <div class="stat-label">Projects Delivered</div>
+    </div>
+    <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+        <div class="stat-number">25+</div>
+        <div class="stat-label">Major Clients</div>
+    </div>
+    <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
+        <div class="stat-number">15+</div>
+        <div class="stat-label">Years Experience</div>
+    </div>
+</div>
+
+<!-- TIMELINE -->
+<section class="timeline-section">
+    <div data-aos="fade-up">
+        <div class="section-label">Project Timeline</div>
+        <h2 class="section-title">Our Journey of Delivery</h2>
+        <p class="section-subtitle">Key milestones and major projects across our history of infrastructure development.</p>
+    </div>
+
+    <div class="timeline">
+        <div class="timeline-item" data-aos="fade-up" data-aos-delay="0">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2022 – 2024</div>
+            <div class="timeline-card">
+                <h3>Fiber Cable Installation — Sambrial, Sialkot</h3>
+                <div class="client">Client: Telecom Foundation (PTCL Projects)</div>
+                <p>Aerial fiber cable hanging, pulling, and connection works across the Sambrial exchange area. Civil infrastructure including pole installation and duct laying.</p>
+                <span class="timeline-tag">Telecommunications</span>
+                <span class="timeline-tag">Civil Works</span>
+            </div>
+        </div>
+
+        <div class="timeline-item" data-aos="fade-up" data-aos-delay="50">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2021 – 2023</div>
+            <div class="timeline-card">
+                <h3>Safety Training & Video Production</h3>
+                <div class="client">Client: Naya Tell Telecommunication Pvt. Ltd.</div>
+                <p>Developed comprehensive safety training programs for telecom field workers. Produced professional documentation videos and IEC materials for the client's network expansion project.</p>
+                <span class="timeline-tag">Training</span>
+                <span class="timeline-tag">Media Production</span>
+            </div>
+        </div>
+
+        <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2020 – 2022</div>
+            <div class="timeline-card">
+                <h3>UNICEF & USAID Training Event Logistics</h3>
+                <div class="client">Client: DGHS Punjab — Health Department</div>
+                <p>End-to-end event management and training logistics for multi-district health campaigns. Procurement of IEC materials, event coordination, and participant management across 15 districts.</p>
+                <span class="timeline-tag">Events & Training</span>
+                <span class="timeline-tag">Government</span>
+            </div>
+        </div>
+
+        <div class="timeline-item" data-aos="fade-up" data-aos-delay="150">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2019 – 2021</div>
+            <div class="timeline-card">
+                <h3>Commercial Solar Installation — Lahore</h3>
+                <div class="client">Client: Multiple Commercial Clients</div>
+                <p>Installation of rooftop solar systems for commercial plazas and office buildings in Lahore. System design, procurement, installation, and commissioning of 50kW–200kW systems.</p>
+                <span class="timeline-tag">Solar Energy</span>
+                <span class="timeline-tag">Commercial</span>
+            </div>
+        </div>
+
+        <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2017 – 2019</div>
+            <div class="timeline-card">
+                <h3>Underground Cable Infrastructure — Central Punjab</h3>
+                <div class="client">Client: Government Agencies</div>
+                <p>Underground cable duct installation, water supply pipeline works, and electrical fixture installation for government facilities across multiple districts in central Punjab.</p>
+                <span class="timeline-tag">Civil Works</span>
+                <span class="timeline-tag">Government</span>
+            </div>
+        </div>
+
+        <div class="timeline-item" data-aos="fade-up" data-aos-delay="250">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2015 – Present</div>
+            <div class="timeline-card">
+                <h3>General Supply & Procurement Contracts</h3>
+                <div class="client">Client: Various Government & NGO Clients</div>
+                <p>Ongoing supply contracts for stationery, printed materials, construction tools, and specialized equipment for government departments, NGOs, and corporate clients across Punjab.</p>
+                <span class="timeline-tag">Supply Chain</span>
+                <span class="timeline-tag">Ongoing</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PROJECTS GRID -->
+<section class="projects-section">
+    <div class="section-header" data-aos="fade-up" style="margin-bottom:48px;">
+        <div class="section-label">Portfolio</div>
+        <h2 class="section-title">Featured Projects</h2>
+        <p style="color:var(--gray-600);font-size:1.05rem;line-height:1.7;max-width:560px;">A selection of completed and ongoing projects showcasing our capabilities across Punjab.</p>
+    </div>
+
+    <div class="projects-grid" id="projectsGrid">
+
+        <div class="project-card" data-category="telecom" data-aos="fade-up" data-aos-delay="0">
+            <img class="project-card-img" src="assets/images/telecom-tower-5.jpg" alt="PTCL Fiber Project">
+            <div class="project-card-body">
+                <div class="project-card-category">📡 Telecommunications</div>
+                <h3>PTCL Fiber Cable Network — Sialkot</h3>
+                <div class="location">
+                    <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>
+                    Sambrial, Sialkot District
+                </div>
+                <p>Aerial and underground fiber cable installation, pole erection, and network commissioning for the PTCL exchange expansion project.</p>
+                <div class="project-badges">
+                    <span class="badge">Fiber Optic</span>
+                    <span class="badge">Civil Works</span>
+                    <span class="badge">Completed</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-card" data-category="solar" data-aos="fade-up" data-aos-delay="80">
+            <img class="project-card-img" src="assets/images/solar-installation-3.webp" alt="Commercial Solar">
+            <div class="project-card-body">
+                <div class="project-card-category">☀️ Solar Systems</div>
+                <h3>Commercial Rooftop Solar — Lahore</h3>
+                <div class="location">
+                    <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>
+                    Lahore, Punjab
+                </div>
+                <p>150kW grid-tied solar PV system installation for a commercial complex. Full system design, procurement, installation, and commissioning.</p>
+                <div class="project-badges">
+                    <span class="badge">150kW System</span>
+                    <span class="badge">Grid-Tied</span>
+                    <span class="badge">Completed</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-card" data-category="events" data-aos="fade-up" data-aos-delay="160">
+            <img class="project-card-img" src="assets/images/telecom-tower-6.jpg" alt="DGHS Events">
+            <div class="project-card-body">
+                <div class="project-card-category">🎯 Events & Training</div>
+                <h3>Health Campaign Logistics — DGHS Punjab</h3>
+                <div class="location">
+                    <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>
+                    15 Districts, Punjab
+                </div>
+                <p>Comprehensive event management and training logistics for UNICEF & USAID-supported public health campaigns across 15 districts of Punjab.</p>
+                <div class="project-badges">
+                    <span class="badge">UNICEF</span>
+                    <span class="badge">USAID</span>
+                    <span class="badge">Government</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-card" data-category="telecom" data-aos="fade-up" data-aos-delay="0">
+            <img class="project-card-img" src="assets/images/fiber-network-cables-1.jpg" alt="Naya Tell">
+            <div class="project-card-body">
+                <div class="project-card-category">📡 Telecommunications</div>
+                <h3>Safety Training Program — Naya Tell</h3>
+                <div class="location">
+                    <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>
+                    Multiple Sites, Punjab
+                </div>
+                <p>Designed and delivered site safety training modules, IEC material production, and documentation video for Naya Tell Telecommunication field teams.</p>
+                <div class="project-badges">
+                    <span class="badge">Safety Training</span>
+                    <span class="badge">Video Production</span>
+                    <span class="badge">Completed</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-card" data-category="civil" data-aos="fade-up" data-aos-delay="80">
+            <img class="project-card-img" src="assets/images/fiber-cable-installation.jpg" alt="Underground Civil">
+            <div class="project-card-body">
+                <div class="project-card-category">🏗️ Civil Works</div>
+                <h3>Underground Duct & Water Supply — Central Punjab</h3>
+                <div class="location">
+                    <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>
+                    Central Punjab Districts
+                </div>
+                <p>Large-scale underground cable duct installation, water supply pipelines, and electrical fixtures for government facilities across multiple districts.</p>
+                <div class="project-badges">
+                    <span class="badge">Government</span>
+                    <span class="badge">Infrastructure</span>
+                    <span class="badge">Completed</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-card" data-category="solar" data-aos="fade-up" data-aos-delay="160">
+            <img class="project-card-img" src="assets/images/solar-commercial-1.jpg" alt="Agricultural Solar">
+            <div class="project-card-body">
+                <div class="project-card-category">☀️ Solar Systems</div>
+                <h3>Agricultural Solar Pump Systems</h3>
+                <div class="location">
+                    <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>
+                    Rural Punjab Districts
+                </div>
+                <p>Solar tube-well and irrigation pump systems installation across rural Punjab. Energy-efficient agricultural water supply solutions for farmers.</p>
+                <div class="project-badges">
+                    <span class="badge">Agricultural</span>
+                    <span class="badge">Off-grid</span>
+                    <span class="badge">Ongoing</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-card" data-category="supply" data-aos="fade-up" data-aos-delay="0">
+            <img class="project-card-img" src="assets/images/telecom-equipment.jpg" alt="Supply Projects">
+            <div class="project-card-body">
+                <div class="project-card-category">📦 General Supplies</div>
+                <h3>IEC Materials & Stationery Supply</h3>
+                <div class="location">
+                    <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>
+                    Punjab-wide
+                </div>
+                <p>Ongoing supply of Information, Education & Communication printed materials, office stationery, and specialized equipment for NGO and government clients.</p>
+                <div class="project-badges">
+                    <span class="badge">NGO</span>
+                    <span class="badge">Government</span>
+                    <span class="badge">Ongoing</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-card" data-category="telecom" data-aos="fade-up" data-aos-delay="80">
+            <img class="project-card-img" src="assets/images/telecom-tower-3.jpg" alt="Tower Maintenance">
+            <div class="project-card-body">
+                <div class="project-card-category">📡 Telecommunications</div>
+                <h3>Telecom Tower Maintenance — Punjab Network</h3>
+                <div class="location">
+                    <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>
+                    Multiple Districts, Punjab
+                </div>
+                <p>Annual maintenance contracts for telecom towers across Punjab including structural inspection, equipment servicing, and emergency repair services.</p>
+                <div class="project-badges">
+                    <span class="badge">Maintenance</span>
+                    <span class="badge">Annual Contract</span>
+                    <span class="badge">Ongoing</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- CLIENTS -->
+<section class="clients-section">
+    <div data-aos="fade-up" style="text-align:center; max-width:600px; margin:0 auto;">
+        <div class="section-label">Our Clients</div>
+        <h2 class="section-title">Organizations We've Served</h2>
+        <p style="color:var(--gray-600);font-size:1.05rem;line-height:1.7;">Trusted by government, private, and international organizations across Pakistan.</p>
+    </div>
+
+    <div class="clients-grid">
+        <div class="client-card" data-aos="fade-up" data-aos-delay="0"><div class="client-abbr">PTCL</div><div class="client-name">Pakistan Telecommunication Company</div></div>
+        <div class="client-card" data-aos="fade-up" data-aos-delay="60"><div class="client-abbr">NT</div><div class="client-name">Naya Tell Telecommunication Pvt. Ltd.</div></div>
+        <div class="client-card" data-aos="fade-up" data-aos-delay="120"><div class="client-abbr">TF</div><div class="client-name">Telecom Foundation</div></div>
+        <div class="client-card" data-aos="fade-up" data-aos-delay="180"><div class="client-abbr">DGHS</div><div class="client-name">Director General Health Services Punjab</div></div>
+        <div class="client-card" data-aos="fade-up" data-aos-delay="240"><div class="client-abbr">UNICEF</div><div class="client-name">United Nations Children's Fund (Pakistan)</div></div>
+        <div class="client-card" data-aos="fade-up" data-aos-delay="300"><div class="client-abbr">USAID</div><div class="client-name">U.S. Agency for International Development</div></div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="projects-cta">
+    <div class="projects-cta-inner" data-aos="fade-up">
+        <h2>Start Your Project With Us</h2>
+        <p>Ready to build something great? SSS is your end-to-end partner from planning to delivery across all 36 districts of Punjab.</p>
+        <div class="cta-buttons">
+            <a href="contact.html" class="btn-primary">Get a Quote</a>
+            <a href="services.html" class="btn-outline">Our Services</a>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-grid">
+        <div class="footer-brand">
+            <img src="assets/logo.jpg" alt="SSS Logo">
+            <strong>Solutions Services & Supplies</strong>
+            <p>Your trusted partner in telecommunications, civil infrastructure, solar energy, and general supplies across Punjab, Pakistan.</p>
+        </div>
+        <div class="footer-col"><h5>Navigation</h5><ul><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="projects.html">Projects</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+        <div class="footer-col"><h5>Services</h5><ul><li><a href="services.html#telecom">Telecommunications</a></li><li><a href="services.html#civil">Civil Works</a></li><li><a href="services.html#solar">Solar Systems</a></li><li><a href="services.html#supplies">General Supplies</a></li></ul></div>
+        <div class="footer-col"><h5>Contact</h5><p style="font-size:0.85rem;margin-bottom:8px;">📍 Lahore, Punjab, Pakistan</p><p style="font-size:0.85rem;margin-bottom:8px;">📞 042-3543673</p><p style="font-size:0.85rem;">✉️ usman293eb@gmail.com</p></div>
+    </div>
+    <div class="footer-bottom"><span>© 2025 Solutions Services & Supplies. All rights reserved.</span><span>Registered with PEC · FBR · PRA · Taxation Dept.</span></div>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+    AOS.init({ once: true, offset: 60 });
+
+    function filterProjects(category, btn) {
+        document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+        btn.classList.add('active');
+        const cards = document.querySelectorAll('.project-card');
+        cards.forEach(card => {
+            if (category === 'all' || card.dataset.category === category) {
+                card.style.display = '';
+                setTimeout(() => card.style.opacity = '1', 10);
+            } else {
+                card.style.opacity = '0';
+                setTimeout(() => card.style.display = 'none', 200);
+            }
+        });
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "name": "sss-website",
+  "version": "1.0.0",
+  "description": "SSS Solutions Services & Supplies — Official Website",
+  "private": true,
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "echo 'Static site — no build step needed'",
+    "deploy": "vercel --prod"
+  },
+  "dependencies": {
+    "nodemailer": "^6.9.9"
+  },
+  "engines": {
+    "node": ">=18.x"
+  }
+}

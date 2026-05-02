@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services — SSS Solutions Services & Supplies</title>
+    <meta name="description" content="Comprehensive telecommunications, civil works, solar systems, and general supply services by SSS across all 36 districts of Punjab, Pakistan.">
+    <link rel="icon" type="image/jpeg" href="assets/logo.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+    <style>
+        :root {
+            --blue-900: #0a1628; --blue-800: #0d2147; --blue-700: #1040a0;
+            --blue-600: #1565C0; --blue-500: #1976D2; --blue-400: #2196F3;
+            --blue-300: #64B5F6; --blue-100: #E3F2FD; --blue-50: #F0F7FF;
+            --white: #FFFFFF; --gray-100: #F5F7FA; --gray-200: #EAECF0;
+            --gray-400: #98A2B3; --gray-600: #475467; --gray-800: #1D2939;
+            --accent: #00C8FF;
+        }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--gray-800); overflow-x: hidden; }
+        h1,h2,h3,h4 { font-family: 'Syne', sans-serif; }
+
+        /* NAV */
+        nav { position: fixed; top:0; left:0; right:0; z-index:1000; padding:0 5%; display:flex; align-items:center; justify-content:space-between; height:70px; background:rgba(10,22,40,0.97); backdrop-filter:blur(12px); border-bottom:1px solid rgba(255,255,255,0.08); }
+        .nav-logo { display:flex; align-items:center; gap:12px; text-decoration:none; }
+        .nav-logo img { height:42px; width:42px; border-radius:50%; object-fit:cover; border:2px solid var(--blue-500); }
+        .nav-logo-text strong { font-family:'Syne',sans-serif; font-size:1.1rem; font-weight:700; color:var(--white); }
+        .nav-logo-text span { font-size:0.65rem; color:var(--blue-300); text-transform:uppercase; letter-spacing:0.08em; display:block; }
+        .nav-links { display:flex; gap:36px; list-style:none; }
+        .nav-links a { text-decoration:none; color:rgba(255,255,255,0.75); font-size:0.9rem; font-weight:500; transition:color 0.2s; position:relative; }
+        .nav-links a::after { content:''; position:absolute; bottom:-4px; left:0; width:0; height:2px; background:var(--blue-400); transition:width 0.3s; }
+        .nav-links a:hover, .nav-links a.active { color:var(--white); }
+        .nav-links a:hover::after, .nav-links a.active::after { width:100%; }
+        .nav-cta { background:var(--blue-600) !important; color:var(--white) !important; padding:8px 20px; border-radius:6px; font-weight:600 !important; }
+        .nav-cta::after { display:none !important; }
+        .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; }
+        .hamburger span { width:24px; height:2px; background:var(--white); border-radius:2px; }
+        @media(max-width:768px){ .nav-links{display:none;} .hamburger{display:flex;} .nav-links.open{display:flex;flex-direction:column;position:absolute;top:70px;left:0;right:0;background:var(--blue-900);padding:20px 5%;border-bottom:1px solid rgba(255,255,255,0.08);gap:16px;} }
+
+        /* PAGE HEADER */
+        .page-header { background:linear-gradient(160deg, var(--blue-900), var(--blue-800)); padding:140px 5% 80px; position:relative; overflow:hidden; }
+        .page-header::after { content:''; position:absolute; inset:0; background-image:linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px); background-size:60px 60px; }
+        .page-header-inner { position:relative; z-index:1; }
+        .breadcrumb { font-size:0.8rem; color:var(--blue-300); margin-bottom:16px; }
+        .breadcrumb a { color:var(--blue-300); text-decoration:none; }
+        .page-header h1 { font-size:clamp(2rem,4vw,3.2rem); font-weight:800; color:var(--white); line-height:1.1; margin-bottom:16px; }
+        .page-header p { color:rgba(255,255,255,0.65); font-size:1.05rem; line-height:1.7; max-width:560px; }
+
+        /* FILTER TABS */
+        .filter-section { background:var(--gray-100); padding:32px 5%; border-bottom:1px solid var(--gray-200); position:sticky; top:70px; z-index:100; }
+        .filter-tabs { display:flex; gap:12px; overflow-x:auto; padding-bottom:4px; }
+        .filter-tab { flex-shrink:0; padding:10px 22px; border-radius:100px; border:2px solid var(--gray-200); background:var(--white); color:var(--gray-600); font-size:0.88rem; font-weight:600; cursor:pointer; transition:all 0.2s; font-family:'DM Sans',sans-serif; }
+        .filter-tab:hover { border-color:var(--blue-400); color:var(--blue-500); }
+        .filter-tab.active { background:var(--blue-600); border-color:var(--blue-600); color:var(--white); }
+
+        /* SERVICES SECTIONS */
+        .services-section { padding:80px 5%; }
+        .services-section:nth-child(even) { background:var(--gray-100); }
+        .services-section-header { display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center; margin-bottom:60px; }
+        .services-section-header img { width:100%; border-radius:16px; box-shadow:0 20px 60px rgba(21,101,192,0.15); height:300px; object-fit:cover; }
+        .section-label { display:inline-block; font-size:0.75rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--blue-600); background:var(--blue-100); padding:4px 14px; border-radius:100px; margin-bottom:14px; }
+        h2.section-title { font-size:clamp(1.6rem,2.5vw,2.2rem); font-weight:800; color:var(--gray-800); line-height:1.2; margin-bottom:14px; }
+        .section-desc { color:var(--gray-600); line-height:1.7; margin-bottom:24px; }
+        .service-items { display:grid; grid-template-columns:repeat(auto-fill, minmax(220px,1fr)); gap:16px; }
+        .service-item { background:var(--white); border:1px solid var(--gray-200); border-radius:12px; padding:20px; transition:all 0.25s; }
+        .service-item:hover { border-color:var(--blue-400); box-shadow:0 8px 30px rgba(21,101,192,0.12); transform:translateY(-3px); }
+        .service-item-icon { width:40px; height:40px; background:var(--blue-100); border-radius:8px; display:flex; align-items:center; justify-content:center; margin-bottom:12px; }
+        .service-item-icon svg { width:20px; height:20px; stroke:var(--blue-600); }
+        .service-item h4 { font-size:0.95rem; font-weight:700; margin-bottom:6px; color:var(--gray-800); }
+        .service-item p { font-size:0.82rem; color:var(--gray-600); line-height:1.55; }
+
+        /* EQUIPMENT SECTION */
+        .equipment-section { padding:80px 5%; background:var(--blue-900); color:var(--white); }
+        .equipment-section .section-label { background:rgba(100,181,246,0.15); color:var(--blue-300); }
+        .equipment-section h2 { color:var(--white); }
+        .equipment-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:16px; margin-top:40px; }
+        .equip-card { background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1); border-radius:12px; padding:20px; text-align:center; transition:all 0.25s; }
+        .equip-card:hover { background:rgba(21,101,192,0.3); border-color:var(--blue-400); }
+        .equip-card .icon { font-size:2rem; margin-bottom:10px; }
+        .equip-card h4 { font-size:0.9rem; font-weight:600; margin-bottom:6px; }
+        .equip-card p { font-size:0.78rem; color:rgba(255,255,255,0.6); }
+
+        /* CTA */
+        .services-cta { background:var(--blue-600); text-align:center; padding:80px 5%; }
+        .services-cta h2 { color:var(--white); font-size:clamp(1.6rem,3vw,2.4rem); font-weight:800; margin-bottom:16px; }
+        .services-cta p { color:rgba(255,255,255,0.8); max-width:520px; margin:0 auto 32px; line-height:1.7; }
+        .btn-white { background:var(--white); color:var(--blue-600); padding:14px 30px; border-radius:8px; text-decoration:none; font-weight:700; font-size:0.95rem; transition:all 0.25s; display:inline-flex; align-items:center; gap:8px; }
+        .btn-white:hover { transform:translateY(-2px); box-shadow:0 10px 30px rgba(0,0,0,0.2); }
+
+        /* FOOTER */
+        footer { background:var(--blue-900); color:rgba(255,255,255,0.7); padding:60px 5% 32px; }
+        .footer-grid { display:grid; grid-template-columns:2fr 1fr 1fr 1.5fr; gap:48px; margin-bottom:48px; }
+        .footer-brand img { height:48px; width:48px; border-radius:50%; border:2px solid var(--blue-600); margin-bottom:16px; }
+        .footer-brand strong { display:block; font-family:'Syne',sans-serif; font-size:1.1rem; font-weight:700; color:var(--white); margin-bottom:8px; }
+        .footer-col h5 { font-family:'Syne',sans-serif; font-size:0.85rem; font-weight:700; color:var(--white); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:18px; }
+        .footer-col ul { list-style:none; }
+        .footer-col ul li { margin-bottom:10px; }
+        .footer-col ul li a { text-decoration:none; color:rgba(255,255,255,0.6); font-size:0.88rem; transition:color 0.2s; }
+        .footer-col ul li a:hover { color:var(--blue-300); }
+        .footer-bottom { border-top:1px solid rgba(255,255,255,0.08); padding-top:28px; display:flex; justify-content:space-between; font-size:0.8rem; color:rgba(255,255,255,0.4); flex-wrap:wrap; gap:8px; }
+        @media(max-width:768px){ .services-section-header{grid-template-columns:1fr;} .footer-grid{grid-template-columns:1fr 1fr;} .footer-brand{grid-column:span 2;} }
+        @media(max-width:480px){ .footer-grid{grid-template-columns:1fr;} .footer-brand{grid-column:span 1;} }
+    </style>
+</head>
+<body>
+
+<nav id="navbar">
+    <a href="index.html" class="nav-logo">
+        <img src="assets/logo.jpg" alt="SSS Logo">
+        <div class="nav-logo-text"><strong>SSS</strong><span>Solutions Services & Supplies</span></div>
+    </a>
+    <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html" class="active">Services</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+    </ul>
+    <div class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')">
+        <span></span><span></span><span></span>
+    </div>
+</nav>
+
+<div class="page-header">
+    <div class="page-header-inner">
+        <div class="breadcrumb"><a href="index.html">Home</a> &nbsp;/&nbsp; Services</div>
+        <h1>Our Services</h1>
+        <p>From telecommunications infrastructure to solar energy and civil works — SSS delivers comprehensive, professional-grade solutions across all 36 districts of Punjab.</p>
+    </div>
+</div>
+
+<div class="filter-section">
+    <div class="filter-tabs">
+        <button class="filter-tab active" onclick="scrollTo('telecom')">📡 Telecommunications</button>
+        <button class="filter-tab" onclick="scrollTo('civil')">🏗️ Civil Works</button>
+        <button class="filter-tab" onclick="scrollTo('solar')">☀️ Solar Systems</button>
+        <button class="filter-tab" onclick="scrollTo('supplies')">📦 General Supplies</button>
+        <button class="filter-tab" onclick="scrollTo('events')">🎯 Events & Training</button>
+    </div>
+</div>
+
+<!-- TELECOM -->
+<section class="services-section" id="telecom">
+    <div class="services-section-header" data-aos="fade-up">
+        <div>
+            <div class="section-label">Category 01</div>
+            <h2 class="section-title">Telecommunications & Network Infrastructure</h2>
+            <p class="section-desc">SSS provides comprehensive telecommunication services for Pakistan's growing connectivity needs — from fiber optic cable networks to telecom tower installations across Punjab.</p>
+            <p class="section-desc">We have successfully completed projects for PTCL, Naya Tell Telecommunication, and Telecom Foundation, with proven expertise in both aerial and underground installations.</p>
+        </div>
+        <img src="assets/images/telecom-tower-4.jpg" alt="Telecommunications Tower" data-aos="fade-left">
+    </div>
+    <div class="service-items" data-aos="fade-up" data-aos-delay="100">
+        <div class="service-item">
+            <div class="service-item-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
+            <h4>Fiber Cable Hanging</h4>
+            <p>Aerial fiber optic cable installation and suspension along utility poles and structures.</p>
+        </div>
+        <div class="service-item">
+            <div class="service-item-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"/></svg></div>
+            <h4>Cable Installation</h4>
+            <p>Complete fiber cable installation services from planning to commissioning.</p>
+        </div>
+        <div class="service-item">
+            <div class="service-item-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0"/></svg></div>
+            <h4>Cable Pulling & Connection</h4>
+            <p>Underground duct cable pulling, termination, and live fiber connectivity services.</p>
+        </div>
+        <div class="service-item">
+            <div class="service-item-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg></div>
+            <h4>Telecom Tower Erection</h4>
+            <p>Greenfield and rooftop telecom tower construction and equipment installation.</p>
+        </div>
+        <div class="service-item">
+            <div class="service-item-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/></svg></div>
+            <h4>Tower Maintenance</h4>
+            <p>Regular inspection, maintenance, and repair of existing telecom tower infrastructure.</p>
+        </div>
+        <div class="service-item">
+            <div class="service-item-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg></div>
+            <h4>Safety Training</h4>
+            <p>Telecom site safety training, IEC material production, and video documentation.</p>
+        </div>
+    </div>
+</section>
+
+<!-- CIVIL WORKS -->
+<section class="services-section" id="civil">
+    <div class="services-section-header" data-aos="fade-up">
+        <img src="assets/images/fiber-cable-installation.jpg" alt="Civil Works" data-aos="fade-right">
+        <div>
+            <div class="section-label">Category 02</div>
+            <h2 class="section-title">Civil Works & Infrastructure</h2>
+            <p class="section-desc">Our civil works division handles everything from underground cable installations to water supply and electrical infrastructure. We have a proven track record with government and NGO projects across Punjab.</p>
+        </div>
+    </div>
+    <div class="service-items" data-aos="fade-up">
+        <div class="service-item"><div class="service-item-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg></div><h4>Underground Cable Duct</h4><p>Trenching, ducting, and underground cable installation for power and telecom.</p></div>
+        <div class="service-item"><div class="service-item-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg></div><h4>Water Supply Lines</h4><p>Pipeline installation and water supply infrastructure for communities and institutions.</p></div>
+        <div class="service-item"><div class="service-item-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div><h4>Electrical Fixtures</h4><p>Industrial and commercial electrical installation and fixture services.</p></div>
+        <div class="service-item"><div class="service-item-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg></div><h4>Construction Works</h4><p>General construction, renovation, and building infrastructure projects.</p></div>
+        <div class="service-item"><div class="service-item-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg></div><h4>Site Survey & Planning</h4><p>Topographic surveys, site feasibility studies, and project planning.</p></div>
+        <div class="service-item"><div class="service-item-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div><h4>Nationwide Coverage</h4><p>Active presence across all 36 districts of Punjab through branch & partner offices.</p></div>
+    </div>
+</section>
+
+<!-- SOLAR -->
+<section class="services-section" id="solar">
+    <div class="services-section-header" data-aos="fade-up">
+        <div>
+            <div class="section-label">Category 03</div>
+            <h2 class="section-title">Solar Energy Systems</h2>
+            <p class="section-desc">SSS provides end-to-end solar energy solutions — from system design and equipment supply to professional installation and after-sales maintenance for homes, farms, and commercial buildings.</p>
+        </div>
+        <img src="assets/images/solar-commercial-2.jpg" alt="Solar Installation" data-aos="fade-left">
+    </div>
+    <div class="service-items" data-aos="fade-up">
+        <div class="service-item"><div class="service-item-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg></div><h4>Residential Solar</h4><p>Custom rooftop solar systems designed and installed for homes and villas.</p></div>
+        <div class="service-item"><div class="service-item-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5"/></svg></div><h4>Commercial Solar</h4><p>Large-scale solar solutions for factories, offices, plazas, and commercial buildings.</p></div>
+        <div class="service-item"><div class="service-item-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945"/></svg></div><h4>Agricultural Solar</h4><p>Solar tube-well and agricultural pump solutions for farms and irrigation.</p></div>
+        <div class="service-item"><div class="service-item-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg></div><h4>Solar Equipment Supply</h4><p>Supply of solar panels, inverters, batteries, and all associated hardware.</p></div>
+        <div class="service-item"><div class="service-item-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg></div><h4>After-Sales Maintenance</h4><p>Annual maintenance contracts, cleaning, and performance optimization services.</p></div>
+        <div class="service-item"><div class="service-item-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg></div><h4>System Design & Audit</h4><p>Free energy audits and custom solar system design with ROI analysis.</p></div>
+    </div>
+</section>
+
+<!-- SUPPLIES -->
+<section class="services-section" id="supplies">
+    <div class="services-section-header" data-aos="fade-up">
+        <img src="assets/images/telecom-equipment.jpg" alt="Equipment Supplies" data-aos="fade-right">
+        <div>
+            <div class="section-label">Category 04</div>
+            <h2 class="section-title">General Supplies & Procurement</h2>
+            <p class="section-desc">SSS offers comprehensive procurement and supply services for corporate, government, and NGO clients — from office stationery and printed materials to construction tools and building materials.</p>
+        </div>
+    </div>
+    <div class="service-items" data-aos="fade-up">
+        <div class="service-item"><div class="service-item-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg></div><h4>Stationery & Office Supplies</h4><p>Bulk stationery, printed materials, and office consumables supply.</p></div>
+        <div class="service-item"><div class="service-item-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg></div><h4>IEC Printed Materials</h4><p>Information, Education & Communication materials for NGO/health programs.</p></div>
+        <div class="service-item"><div class="service-item-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0"/></svg></div><h4>Construction Tools</h4><p>Professional construction and surveying tools for field operations.</p></div>
+        <div class="service-item"><div class="service-item-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg></div><h4>Building Materials</h4><p>Cement, steel, pipes, and other construction materials for project needs.</p></div>
+    </div>
+</section>
+
+<!-- EVENTS -->
+<section class="services-section" id="events">
+    <div class="services-section-header" data-aos="fade-up">
+        <div>
+            <div class="section-label">Category 05</div>
+            <h2 class="section-title">Events Management & Training</h2>
+            <p class="section-desc">We have successfully delivered event management and training logistics for UNICEF, USAID, and DGHS Punjab — providing end-to-end support from venue logistics to video production and documentation.</p>
+        </div>
+        <img src="assets/images/fiber-network-cables-2.jpg" alt="Events Training" data-aos="fade-left">
+    </div>
+    <div class="service-items" data-aos="fade-up">
+        <div class="service-item"><div class="service-item-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg></div><h4>Event Management</h4><p>Full-scale corporate and institutional event management and logistics.</p></div>
+        <div class="service-item"><div class="service-item-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg></div><h4>Video Production</h4><p>Professional video documentation for training programs and corporate events.</p></div>
+        <div class="service-item"><div class="service-item-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg></div><h4>Training Logistics</h4><p>Capacity building workshops and training event coordination and support.</p></div>
+        <div class="service-item"><div class="service-item-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div><h4>Safety Training Programs</h4><p>Occupational safety and health training for field workers and site teams.</p></div>
+    </div>
+</section>
+
+<!-- EQUIPMENT -->
+<section class="equipment-section">
+    <div data-aos="fade-up">
+        <div class="section-label">Our Assets</div>
+        <h2 style="font-size:clamp(1.6rem,2.5vw,2.2rem); font-weight:800; line-height:1.2; margin-bottom:14px; color:var(--white);">Equipment & Resources</h2>
+        <p style="color:rgba(255,255,255,0.65); max-width:560px; line-height:1.7;">SSS maintains a comprehensive fleet of equipment to handle projects of any scale — ensuring quality execution without delays.</p>
+    </div>
+    <div class="equipment-grid" data-aos="fade-up" data-aos-delay="100">
+        <div class="equip-card"><div class="icon">🚁</div><h4>Surveying Equipment</h4><p>Total stations, GPS, leveling instruments</p></div>
+        <div class="equip-card"><div class="icon">🔧</div><h4>Construction Tools</h4><p>Heavy tools, concrete mixers, generators</p></div>
+        <div class="equip-card"><div class="icon">⚡</div><h4>Power Equipment</h4><p>Generators, UPS systems, power tools</p></div>
+        <div class="equip-card"><div class="icon">🛡️</div><h4>Safety Gear</h4><p>Full PPE kits, fall protection, safety gear</p></div>
+        <div class="equip-card"><div class="icon">🚛</div><h4>Transport Fleet</h4><p>Vehicles and logistics for all 36 districts</p></div>
+        <div class="equip-card"><div class="icon">📡</div><h4>Telecom Tools</h4><p>OTDR, fusion splicers, network testers</p></div>
+        <div class="equip-card"><div class="icon">☀️</div><h4>Solar Test Equipment</h4><p>Irradiance meters, IV curve tracers</p></div>
+        <div class="equip-card"><div class="icon">📷</div><h4>Video & Media</h4><p>Professional cameras, drones for documentation</p></div>
+    </div>
+</section>
+
+<!-- CTA -->
+<div class="services-cta" data-aos="fade-up">
+    <h2>Have a Project in Mind?</h2>
+    <p>Reach out to us for a free consultation and quote. We'll assess your requirements and provide the best solution.</p>
+    <a href="contact.html" class="btn-white">Get a Free Quote →</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-grid">
+        <div class="footer-brand">
+            <img src="assets/logo.jpg" alt="SSS Logo">
+            <strong>Solutions Services & Supplies</strong>
+            <p>Your trusted partner in telecommunications, civil infrastructure, solar energy, and general supplies across Punjab, Pakistan.</p>
+        </div>
+        <div class="footer-col"><h5>Navigation</h5><ul><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="projects.html">Projects</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+        <div class="footer-col"><h5>Services</h5><ul><li><a href="#telecom">Telecommunications</a></li><li><a href="#civil">Civil Works</a></li><li><a href="#solar">Solar Systems</a></li><li><a href="#supplies">General Supplies</a></li><li><a href="#events">Events & Training</a></li></ul></div>
+        <div class="footer-col"><h5>Contact</h5><p style="font-size:0.85rem; margin-bottom:8px;">📍 Lahore, Punjab, Pakistan</p><p style="font-size:0.85rem; margin-bottom:8px;">📞 042-3543673</p><p style="font-size:0.85rem;">✉️ usman293eb@gmail.com</p></div>
+    </div>
+    <div class="footer-bottom"><span>© 2025 Solutions Services & Supplies. All rights reserved.</span><span>Registered with PEC · FBR · PRA · Taxation Dept.</span></div>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+    AOS.init({ once: true, offset: 60 });
+    function scrollTo(id) {
+        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+        event.target.classList.add('active');
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSS — Solutions Services & Supplies | Punjab, Pakistan</title>
+    <meta name="description" content="Solutions Services & Supplies (SSS) — Professional telecommunications, civil works, solar systems, and general supply services across Punjab, Pakistan.">
+    <link rel="icon" type="image/jpeg" href="assets/logo.jpg">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+
+    <!-- AOS Animation -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+
+    <style>
+        :root {
+            --blue-900: #0a1628;
+            --blue-800: #0d2147;
+            --blue-700: #1040a0;
+            --blue-600: #1565C0;
+            --blue-500: #1976D2;
+            --blue-400: #2196F3;
+            --blue-300: #64B5F6;
+            --blue-100: #E3F2FD;
+            --blue-50:  #F0F7FF;
+            --white:    #FFFFFF;
+            --gray-100: #F5F7FA;
+            --gray-200: #EAECF0;
+            --gray-400: #98A2B3;
+            --gray-600: #475467;
+            --gray-800: #1D2939;
+            --accent:   #00C8FF;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--white);
+            color: var(--gray-800);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Syne', sans-serif; }
+
+        /* ===== NAVBAR ===== */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            padding: 0 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 70px;
+            background: rgba(10, 22, 40, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(10, 22, 40, 0.99);
+            box-shadow: 0 4px 30px rgba(0,0,0,0.3);
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .nav-logo img {
+            height: 42px;
+            width: 42px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--blue-500);
+        }
+
+        .nav-logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .nav-logo-text strong {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: 0.05em;
+        }
+
+        .nav-logo-text span {
+            font-size: 0.65rem;
+            color: var(--blue-300);
+            font-weight: 400;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 36px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: rgba(255,255,255,0.75);
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.03em;
+            transition: color 0.2s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px; left: 0;
+            width: 0; height: 2px;
+            background: var(--blue-400);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--white);
+        }
+
+        .nav-links a:hover::after, .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: var(--blue-600);
+            color: var(--white) !important;
+            padding: 8px 20px;
+            border-radius: 6px;
+            font-weight: 600 !important;
+            transition: background 0.2s, transform 0.2s !important;
+        }
+
+        .nav-cta:hover {
+            background: var(--blue-500) !important;
+            transform: translateY(-1px);
+        }
+
+        .nav-cta::after { display: none !important; }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        .hamburger span {
+            width: 24px; height: 2px;
+            background: var(--white);
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(160deg, var(--blue-900) 0%, var(--blue-800) 40%, #0a2a6e 100%);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding: 120px 5% 80px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 80% 60% at 70% 50%, rgba(21,101,192,0.35) 0%, transparent 70%),
+                radial-gradient(ellipse 50% 80% at 10% 80%, rgba(0,200,255,0.1) 0%, transparent 60%);
+        }
+
+        /* Grid overlay */
+        .hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 650px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(21,101,192,0.3);
+            border: 1px solid rgba(100,181,246,0.4);
+            color: var(--blue-300);
+            padding: 6px 16px;
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 28px;
+        }
+
+        .hero-badge::before {
+            content: '';
+            width: 6px; height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .hero h1 {
+            font-size: clamp(2.4rem, 5vw, 4rem);
+            font-weight: 800;
+            color: var(--white);
+            line-height: 1.1;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+        }
+
+        .hero h1 em {
+            font-style: normal;
+            background: linear-gradient(90deg, var(--blue-400), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.7;
+            margin-bottom: 40px;
+            max-width: 520px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--blue-600);
+            color: var(--white);
+            padding: 14px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 0.02em;
+            transition: all 0.25s;
+            border: 2px solid var(--blue-600);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary:hover {
+            background: var(--blue-500);
+            border-color: var(--blue-500);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(21,101,192,0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            padding: 14px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 0.02em;
+            transition: all 0.25s;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .btn-outline:hover {
+            background: rgba(255,255,255,0.08);
+            border-color: rgba(255,255,255,0.7);
+            transform: translateY(-2px);
+        }
+
+        /* Hero visual side */
+        .hero-visual {
+            position: absolute;
+            right: 5%;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 2;
+            width: min(500px, 40vw);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .hero-img-card {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+
+        .hero-img-card img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s;
+        }
+
+        .hero-img-card:hover img { transform: scale(1.05); }
+        .hero-img-card:first-child { margin-top: 30px; }
+        .hero-img-card:last-child { margin-top: -30px; grid-column: span 2; height: 120px; }
+        .hero-img-card:last-child img { height: 120px; }
+
+        /* Stats strip */
+        .stats-strip {
+            background: var(--blue-900);
+            border-top: 1px solid rgba(255,255,255,0.06);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            padding: 32px 5%;
+            display: flex;
+            justify-content: space-around;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Syne', sans-serif;
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: var(--white);
+            line-height: 1;
+        }
+
+        .stat-number span {
+            color: var(--blue-400);
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--blue-300);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-top: 6px;
+        }
+
+        /* ===== SECTIONS ===== */
+        section { padding: 90px 5%; }
+
+        .section-label {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--blue-600);
+            background: var(--blue-100);
+            padding: 4px 14px;
+            border-radius: 100px;
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: clamp(1.8rem, 3vw, 2.8rem);
+            font-weight: 800;
+            color: var(--gray-800);
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+        }
+
+        .section-subtitle {
+            font-size: 1.05rem;
+            color: var(--gray-600);
+            line-height: 1.7;
+            max-width: 560px;
+        }
+
+        .section-header {
+            margin-bottom: 60px;
+        }
+
+        /* ===== ABOUT ===== */
+        .about {
+            background: var(--white);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 16px;
+            box-shadow: 0 30px 80px rgba(21,101,192,0.15);
+        }
+
+        .about-badge {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            background: var(--blue-600);
+            color: var(--white);
+            padding: 20px 24px;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(21,101,192,0.4);
+        }
+
+        .about-badge strong {
+            display: block;
+            font-family: 'Syne', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 800;
+            line-height: 1;
+        }
+
+        .about-badge span {
+            font-size: 0.75rem;
+            opacity: 0.85;
+            letter-spacing: 0.05em;
+        }
+
+        .reg-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 32px;
+        }
+
+        .reg-card {
+            background: var(--blue-50);
+            border: 1px solid var(--blue-100);
+            border-radius: 10px;
+            padding: 14px 16px;
+        }
+
+        .reg-card dt {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--blue-600);
+            margin-bottom: 4px;
+        }
+
+        .reg-card dd {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--gray-800);
+            font-family: 'DM Mono', monospace;
+        }
+
+        /* ===== SERVICES PREVIEW ===== */
+        .services-preview {
+            background: var(--gray-100);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 24px;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .service-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 50px rgba(21,101,192,0.15);
+        }
+
+        .service-card-img {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .service-card-body {
+            padding: 22px;
+        }
+
+        .service-icon {
+            width: 44px; height: 44px;
+            background: var(--blue-100);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 14px;
+        }
+
+        .service-icon svg {
+            width: 22px; height: 22px;
+            stroke: var(--blue-600);
+        }
+
+        .service-card h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--gray-800);
+        }
+
+        .service-card p {
+            font-size: 0.88rem;
+            color: var(--gray-600);
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .service-link {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--blue-600);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .service-link svg { width: 16px; height: 16px; stroke: currentColor; transition: transform 0.2s; }
+        .service-card:hover .service-link svg { transform: translateX(4px); }
+
+        /* ===== CLIENTS / TRUST ===== */
+        .trust {
+            background: var(--white);
+        }
+
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .trust-card {
+            background: var(--blue-50);
+            border: 1px solid var(--blue-100);
+            border-radius: 16px;
+            padding: 28px;
+        }
+
+        .trust-avatar {
+            width: 48px; height: 48px;
+            background: var(--blue-600);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            color: var(--white);
+            font-size: 0.9rem;
+            margin-bottom: 16px;
+        }
+
+        .trust-card h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .trust-card .org { font-size: 0.8rem; color: var(--blue-600); margin-bottom: 14px; }
+
+        .trust-card p {
+            font-size: 0.88rem;
+            color: var(--gray-600);
+            line-height: 1.65;
+            font-style: italic;
+        }
+
+        .stars {
+            color: #F59E0B;
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+        }
+
+        /* ===== CTA BAND ===== */
+        .cta-band {
+            background: linear-gradient(135deg, var(--blue-900) 0%, var(--blue-800) 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-band::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 70% 100% at 50% 50%, rgba(21,101,192,0.4), transparent);
+        }
+
+        .cta-band-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 660px;
+            margin: 0 auto;
+        }
+
+        .cta-band h2 {
+            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 16px;
+        }
+
+        .cta-band p {
+            color: rgba(255,255,255,0.7);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 36px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--blue-900);
+            color: rgba(255,255,255,0.7);
+            padding: 60px 5% 32px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 48px;
+            margin-bottom: 48px;
+        }
+
+        .footer-brand img {
+            height: 48px;
+            width: 48px;
+            border-radius: 50%;
+            border: 2px solid var(--blue-600);
+            margin-bottom: 16px;
+        }
+
+        .footer-brand strong {
+            display: block;
+            font-family: 'Syne', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+
+        .footer-brand p {
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+        .footer-col h5 {
+            font-family: 'Syne', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+
+        .footer-col ul { list-style: none; }
+
+        .footer-col ul li { margin-bottom: 10px; }
+
+        .footer-col ul li a {
+            text-decoration: none;
+            color: rgba(255,255,255,0.6);
+            font-size: 0.88rem;
+            transition: color 0.2s;
+        }
+
+        .footer-col ul li a:hover { color: var(--blue-300); }
+
+        .footer-contact-item {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 12px;
+            font-size: 0.85rem;
+        }
+
+        .footer-contact-item svg {
+            width: 16px; height: 16px;
+            stroke: var(--blue-400);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.08);
+            padding-top: 28px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: gap;
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.4);
+        }
+
+        /* ===== MOBILE ===== */
+        @media (max-width: 1024px) {
+            .hero-visual { display: none; }
+        }
+
+        @media (max-width: 768px) {
+            nav { padding: 0 4%; }
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
+            .nav-links.open {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 70px; left: 0; right: 0;
+                background: var(--blue-900);
+                padding: 20px 5%;
+                border-bottom: 1px solid rgba(255,255,255,0.08);
+                gap: 16px;
+            }
+            .about-grid { grid-template-columns: 1fr; }
+            .about-image { order: -1; }
+            .about-badge { right: 10px; }
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+            .footer-brand { grid-column: span 2; }
+        }
+
+        @media (max-width: 480px) {
+            section { padding: 60px 4%; }
+            .stats-strip { gap: 16px; }
+            .stat-number { font-size: 1.8rem; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .footer-brand { grid-column: span 1; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+    <a href="index.html" class="nav-logo">
+        <img src="assets/logo.jpg" alt="SSS Logo">
+        <div class="nav-logo-text">
+            <strong>SSS</strong>
+            <span>Solutions Services & Supplies</span>
+        </div>
+    </a>
+
+    <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+    </ul>
+
+    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-content" data-aos="fade-up" data-aos-duration="900">
+        <div class="hero-badge">Registered with PEC · FBR · PRA</div>
+        <h1>Your Partner in<br><em>Quality, Connectivity</em><br>& Growth</h1>
+        <p>Solutions Services & Supplies delivers professional telecommunications, civil infrastructure, solar energy systems, and comprehensive supply services across all 36 districts of Punjab, Pakistan.</p>
+        <div class="hero-buttons">
+            <a href="services.html" class="btn-primary">
+                <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                Explore Services
+            </a>
+            <a href="contact.html" class="btn-outline">Get a Quote</a>
+        </div>
+    </div>
+
+    <div class="hero-visual">
+        <div class="hero-img-card"><img src="assets/images/telecom-tower-1.jpg" alt="Telecom Tower"></div>
+        <div class="hero-img-card"><img src="assets/images/solar-installation-1.jpg" alt="Solar Installation"></div>
+        <div class="hero-img-card"><img src="assets/images/fiber-cable-installation.jpg" alt="Fiber Cable"></div>
+    </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-strip">
+    <div class="stat-item" data-aos="fade-up" data-aos-delay="0">
+        <div class="stat-number"><span class="counter" data-target="36">0</span></div>
+        <div class="stat-label">Districts Covered</div>
+    </div>
+    <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
+        <div class="stat-number"><span class="counter" data-target="15">0</span>+</div>
+        <div class="stat-label">Years Experience</div>
+    </div>
+    <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+        <div class="stat-number"><span class="counter" data-target="150">0</span>+</div>
+        <div class="stat-label">Projects Completed</div>
+    </div>
+    <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
+        <div class="stat-number"><span class="counter" data-target="25">0</span>+</div>
+        <div class="stat-label">Major Clients</div>
+    </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about">
+    <div class="about-grid">
+        <div class="about-image" data-aos="fade-right" data-aos-duration="800">
+            <img src="assets/images/telecom-tower-2.jpg" alt="SSS Team at Work">
+            <div class="about-badge">
+                <strong>36</strong>
+                <span>Districts<br>Across Punjab</span>
+            </div>
+        </div>
+
+        <div data-aos="fade-left" data-aos-duration="800">
+            <div class="section-label">Who We Are</div>
+            <h2 class="section-title">Building Punjab's Infrastructure Since Day One</h2>
+            <p style="color:var(--gray-600); line-height:1.75; margin-bottom:20px;">
+                Solutions Services & Supplies (SSS) is a private business organization headquartered in Lahore, operating through branch and partner offices across all 36 districts of Punjab. We are fully registered and compliant with all major regulatory bodies.
+            </p>
+            <p style="color:var(--gray-600); line-height:1.75; margin-bottom:32px;">
+                Our mission is to grow as a prestigious and trustworthy partner in both social and corporate sectors — prioritizing quality and client satisfaction above all else. We build long-term relationships rooted in reliability, transparency, and excellence.
+            </p>
+
+            <dl class="reg-cards">
+                <div class="reg-card">
+                    <dt>NTN</dt>
+                    <dd>3530218699626</dd>
+                </div>
+                <div class="reg-card">
+                    <dt>PEC Registration</dt>
+                    <dd>85282_C6_EE07-EE08</dd>
+                </div>
+                <div class="reg-card">
+                    <dt>PSTN</dt>
+                    <dd>7405751-2</dd>
+                </div>
+                <div class="reg-card">
+                    <dt>PR/REG</dt>
+                    <dd>3530218699626</dd>
+                </div>
+            </dl>
+        </div>
+    </div>
+</section>
+
+<!-- SERVICES PREVIEW -->
+<section class="services-preview">
+    <div class="section-header" data-aos="fade-up">
+        <div class="section-label">What We Do</div>
+        <h2 class="section-title">Comprehensive Services<br>Across Punjab</h2>
+        <p class="section-subtitle">From laying fiber cables to installing solar panels — we handle end-to-end infrastructure projects with precision and professionalism.</p>
+    </div>
+
+    <div class="services-grid">
+        <a href="services.html#telecom" class="service-card" data-aos="fade-up" data-aos-delay="0">
+            <img class="service-card-img" src="assets/images/telecom-tower-3.jpg" alt="Telecommunications">
+            <div class="service-card-body">
+                <div class="service-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0"/></svg>
+                </div>
+                <h3>Telecommunications</h3>
+                <p>Fiber cable hanging, installation, pulling, and connection services. Tower erection and maintenance for modern communication networks.</p>
+                <span class="service-link">Learn More <svg fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span>
+            </div>
+        </a>
+
+        <a href="services.html#civil" class="service-card" data-aos="fade-up" data-aos-delay="100">
+            <img class="service-card-img" src="assets/images/fiber-network-cables-1.jpg" alt="Civil Works">
+            <div class="service-card-body">
+                <div class="service-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                </div>
+                <h3>Civil Works</h3>
+                <p>Underground cable installations, water supply lines, electrical fixtures, and comprehensive civil infrastructure for large-scale projects.</p>
+                <span class="service-link">Learn More <svg fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span>
+            </div>
+        </a>
+
+        <a href="services.html#solar" class="service-card" data-aos="fade-up" data-aos-delay="200">
+            <img class="service-card-img" src="assets/images/solar-installation-2.jpg" alt="Solar Systems">
+            <div class="service-card-body">
+                <div class="service-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                </div>
+                <h3>Solar Systems</h3>
+                <p>Complete solar system installation and supplies for residential, commercial, and agricultural applications across Punjab.</p>
+                <span class="service-link">Learn More <svg fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span>
+            </div>
+        </a>
+
+        <a href="services.html#supplies" class="service-card" data-aos="fade-up" data-aos-delay="300">
+            <img class="service-card-img" src="assets/images/solar-commercial-1.jpg" alt="General Supplies">
+            <div class="service-card-body">
+                <div class="service-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+                </div>
+                <h3>General Supplies & Events</h3>
+                <p>Stationery, construction materials, IEC printed materials, and professional event management and training logistics.</p>
+                <span class="service-link">Learn More <svg fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span>
+            </div>
+        </a>
+    </div>
+
+    <div style="text-align:center; margin-top:48px;" data-aos="fade-up">
+        <a href="services.html" class="btn-primary" style="background:var(--blue-600); color:var(--white); padding:14px 32px; border-radius:8px; text-decoration:none; font-weight:600; font-size:0.95rem; display:inline-flex; align-items:center; gap:8px; border:2px solid var(--blue-600); transition:all 0.25s;">
+            View All Services
+            <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+        </a>
+    </div>
+</section>
+
+<!-- TRUST -->
+<section class="trust">
+    <div class="section-header" style="text-align:center; max-width:600px; margin:0 auto 60px;" data-aos="fade-up">
+        <div class="section-label">Testimonials</div>
+        <h2 class="section-title">Trusted by Leading Organizations</h2>
+        <p class="section-subtitle" style="margin:0 auto;">Working with government agencies, private corporations, and international NGOs across Pakistan.</p>
+    </div>
+
+    <div class="trust-grid">
+        <div class="trust-card" data-aos="fade-up" data-aos-delay="0">
+            <div class="trust-avatar">NT</div>
+            <div class="stars">★★★★★</div>
+            <h4>Naya Tell Telecommunication</h4>
+            <div class="org">Private Limited</div>
+            <p>"SSS delivered exceptional fiber cable installation and civil works. Their safety training programs and video production quality exceeded our expectations."</p>
+        </div>
+
+        <div class="trust-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="trust-avatar">TF</div>
+            <div class="stars">★★★★★</div>
+            <h4>Telecom Foundation</h4>
+            <div class="org">PTCL Projects · Sambrial, Sialkot</div>
+            <p>"Professional cable hanging and installation services. Timely delivery and quality workmanship on all assigned projects."</p>
+        </div>
+
+        <div class="trust-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="trust-avatar">DG</div>
+            <div class="stars">★★★★★</div>
+            <h4>DGHS Punjab</h4>
+            <div class="org">Health Department — UNICEF & USAID Projects</div>
+            <p>"Outstanding event management and training logistics. Highly professional team that consistently delivers on time."</p>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band">
+    <div class="cta-band-inner" data-aos="fade-up">
+        <h2>Ready to Start Your Project?</h2>
+        <p>Partner with SSS for reliable, quality-driven solutions. We operate across all 36 districts of Punjab — your project is always within our reach.</p>
+        <div class="cta-buttons">
+            <a href="contact.html" class="btn-primary">Get a Free Quote</a>
+            <a href="tel:042-3543673" class="btn-outline">📞 042-3543673</a>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-grid">
+        <div class="footer-brand">
+            <img src="assets/logo.jpg" alt="SSS Logo">
+            <strong>Solutions Services & Supplies</strong>
+            <p>Your trusted partner in telecommunications, civil infrastructure, solar energy, and general supplies across Punjab, Pakistan.</p>
+        </div>
+
+        <div class="footer-col">
+            <h5>Navigation</h5>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h5>Services</h5>
+            <ul>
+                <li><a href="services.html#telecom">Telecommunications</a></li>
+                <li><a href="services.html#civil">Civil Works</a></li>
+                <li><a href="services.html#solar">Solar Systems</a></li>
+                <li><a href="services.html#supplies">General Supplies</a></li>
+                <li><a href="services.html#events">Events & Training</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h5>Contact</h5>
+            <div class="footer-contact-item">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                <span>Lahore, Punjab, Pakistan</span>
+            </div>
+            <div class="footer-contact-item">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                <span>042-3543673</span>
+            </div>
+            <div class="footer-contact-item">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                <span>usman293eb@gmail.com</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <span>© 2025 Solutions Services & Supplies. All rights reserved.</span>
+        <span>Registered with PEC · FBR · PRA · Taxation Dept.</span>
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+    AOS.init({ once: true, offset: 60 });
+
+    // Navbar scroll
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+        navbar.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Mobile menu
+    function toggleMenu() {
+        document.getElementById('navLinks').classList.toggle('open');
+    }
+
+    // Counter animation
+    const counters = document.querySelectorAll('.counter');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const el = entry.target;
+                const target = +el.dataset.target;
+                let current = 0;
+                const step = target / 60;
+                const timer = setInterval(() => {
+                    current = Math.min(current + step, target);
+                    el.textContent = Math.floor(current);
+                    if (current >= target) clearInterval(timer);
+                }, 20);
+                observer.unobserve(el);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    counters.forEach(c => observer.observe(c));
+</script>
+</body>
+</html>
